@@ -168,7 +168,7 @@ $ make clean
 
 ### Data Flow
 
-#### **`/match` Request**
+#### **1. `/match` Request**
 
 - **Client** → `POST /match` `{ description }`
 - **Express handler**:
@@ -183,9 +183,7 @@ $ make clean
 
 > All operations are in-memory; no DB calls on the hot path.
 
----
-
-#### **Cache Reload**
+#### **2. Cache Reload**
 
 - **Trigger**:
   - Periodic timer  
