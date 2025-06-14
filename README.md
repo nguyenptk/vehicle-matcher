@@ -50,7 +50,7 @@ This service exposes:
 ├── data.sql
 ├── docker-compose.yml
 ├── input.txt
-├── .env
+├── .env.example
 ├── package.json
 └── tsconfig.json
 ```
@@ -72,6 +72,8 @@ $ make install
 ```
 
 ### 2. Spin up services via Docker
+
+Create a `.env` (see `.env.example`) to configure environment variable. Then,
 
 ```shell
 $ make up
