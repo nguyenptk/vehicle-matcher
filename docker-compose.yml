@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: vehicle_matcher
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./data.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/vehicle_matcher
+    volumes:
+      - .:/app
+    command: >
+      sh -c "
+        npx prisma generate &&
+        npx tsc &&
+        node dist/server.js
+      "
+
+volumes:
+  pgdata:

@@ -1,0 +1,40 @@
+# Node modules and build output
+node_modules/
+dist/
+
+# Environment variables
+.env
+.env.*.local
+
+# Prisma artifacts
+.prisma/
+prisma/migrations/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Docker
+**/docker-compose.override.yml
+
+# Coverage directory
+coverage/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS
+.DS_Store
+
+# Misc
+*.tgz
